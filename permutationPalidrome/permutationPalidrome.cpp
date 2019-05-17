@@ -6,37 +6,29 @@
 
 using namespace std;
 
-// swap the values at 2 pointers or position
-void swap(char *x, char *y) {
-	char temp = *x;
-	*x = *y;
-	*y = temp;
-}
-
 // Get the permutation and store it in a temp string.
-void permute(char *a, int start, int end) {
-	int i;
-
-	if (start == end) {
-		cout << a << endl;
+void permut(string a, int start, int end) {
+	// base condition for the permutation
+	if (start == end - 1) {
+		printf("%s\n", a);
+		return;
 	}
-	else {
-		for (i = start; i <= end; i++) {
-			swap(a+1, a + i);
-			permute(a, start+1, end);
-			swap(a+1, a + i);
-		}
+
+	// Process each character of the string
+	for (int j = start; j < end; j++) {
+		swap(a[start], a[j]);
 	}
 }
 
 bool solution(string s) {
 	bool palidrome = false;
+	permut(s, 0, 2);
 	return palidrome;
 }
 
 int main()
 {
-	char str[] = "ABC";
-	permute(str, 0, 2);
+	string str = "ABC";
+	solution(str);
 	return 0;
 }
