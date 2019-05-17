@@ -22,9 +22,9 @@ void permute(char *a, int start, int end) {
 	}
 	else {
 		for (i = start; i <= end; i++) {
-			swap((a++), (a + i));
-			permute(a, start++, end);
-			swap(a++, (a + i));
+			swap(a+1, a + i);
+			permute(a, start+1, end);
+			swap(a+1, a + i);
 		}
 	}
 }
